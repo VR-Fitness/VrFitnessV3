@@ -3924,6 +3924,9 @@ GameObject:
   - component: {fileID: 2305341639381814140}
   - component: {fileID: 7718451674055367910}
   - component: {fileID: 798426753}
+  - component: {fileID: 7875842962966059743}
+  - component: {fileID: 143045108}
+  - component: {fileID: 143045109}
   m_Layer: 11
   m_Name: ShipType1
   m_TagString: enemy
@@ -3970,11 +3973,61 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7718451674055367911}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15954465, y: 0.12769699, z: 0.56650555}
-  m_Center: {x: -0.006277114, y: 0.02323544, z: -0.0014625192}
+  m_Size: {x: 0.4145958, y: 0.40742052, z: 0.56650555}
+  m_Center: {x: 0.025806472, y: -0.008199751, z: -0.0014625192}
+--- !u!114 &7875842962966059743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7718451674055367911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c307a02969d065a45b8c8cf53edeefe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootintyerval: 2
+  PlayerTag: PlayerShip
+  offsetSliderZ: 0
+  offsetSliderY: 0
+  offsetSliderX: 0
+  projectile: {fileID: 2933673336926503557, guid: 9bbdc7a077b91004b80e4e443cea93dc,
+    type: 3}
+  turretController: []
+--- !u!114 &143045108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7718451674055367911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4d1884481edaa45a948846b9fd75ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathExplosionEffect: {fileID: 393122011016209088, guid: 4d20833b859b9f14396058636d11f599,
+    type: 3}
+--- !u!114 &143045109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7718451674055367911}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8135d0a65ceff54e8914f9fe42844c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootintyerval: 2
+  PlayerTag: PlayerShip
+  projectile: {fileID: 2933673336926503557, guid: 9bbdc7a077b91004b80e4e443cea93dc,
+    type: 3}
 --- !u!1 &8152535850409719098
 GameObject:
   m_ObjectHideFlags: 0

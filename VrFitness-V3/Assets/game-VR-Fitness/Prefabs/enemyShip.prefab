@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,13 +100,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321814583221976488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c307a02969d065a45b8c8cf53edeefe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  bullet: {fileID: 2933673336926503557, guid: 9bbdc7a077b91004b80e4e443cea93dc, type: 3}
+  shootintyerval: 2
+  PlayerTag: PlayerShip
+  offsetSliderZ: 0
+  offsetSliderY: 0
+  offsetSliderX: 0
+  projectile: {fileID: 2933673336926503557, guid: 9bbdc7a077b91004b80e4e443cea93dc,
+    type: 3}
+  turretController: []
 --- !u!54 &-7789187052682784179
 Rigidbody:
   m_ObjectHideFlags: 0
