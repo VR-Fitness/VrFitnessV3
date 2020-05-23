@@ -9,6 +9,7 @@ public class scorescript : MonoBehaviour
     public TextMeshProUGUI MultiplierText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText; // UI text
+    public TextMeshProUGUI pulsText; // UI text puls
     private int ScoreAddInterval = 2; // interval of score add modifier
     private float timer = 0;
 
@@ -39,7 +40,8 @@ public class scorescript : MonoBehaviour
         Debug.Log("UI update");
         scoreText.text = "Score:" + System.Environment.NewLine + PlayerStats.scoreValue;
         MultiplierText.text = "Multiplier:" + System.Environment.NewLine + PlayerStats.multiplierValue;
-        timerText.text = "Time: " + System.Environment.NewLine + PlayerStats.GetTimePlayedMinuttes().ToString() + ":" + PlayerStats.GetTimePlayedSeconds().ToString(); 
+        timerText.text = "Time: " + System.Environment.NewLine + PlayerStats.GetTimePlayedMinuttes().ToString() + ":" + PlayerStats.GetTimePlayedSeconds().ToString();
+        pulsText.text = "puls:" + System.Environment.NewLine + PlayerStats.playerBPM;
     }
 
 
