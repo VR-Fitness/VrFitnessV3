@@ -8844,7 +8844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf684e7905afa854eb53fe120f1d4701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: E:\unity projects\VrFitness-V3\Assets\game-VR-Fitness\Scripts\Puls\puls.txt
   PulsCatch: 0
 --- !u!4 &2099040578
 Transform:

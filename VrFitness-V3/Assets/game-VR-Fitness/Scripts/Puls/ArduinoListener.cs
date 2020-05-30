@@ -3,90 +3,97 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO.Ports;
 using System.Threading;
-using System;
-using System.Text;
-using System.IO;
 
 public class ArduinoListener : MonoBehaviour
 {
+    private Thread connectionThread;
+    private SerialPort serialPort;
+    // check port name in bluetooth settings
+    public string port = "COM10";
 
-   
-    float timer;
+    public string pulsEsp32Incoming = "";
 
-    public string path;
-   // public string path = @"E:\unity projects\VrFitness-V3\Assets\game-VR-Fitness\Scripts\Puls\puls.txt";
 
     [SerializeField]
     private int PulsCatch;
 
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        path = Application.dataPath + @"\game-VR-Fitness\Scripts\Puls\puls.txt";
+        UnityEngine.Debug.Log("connectiong to comport...");
+        serialPort = new SerialPort(port, 19200, Parity.None, 8, StopBits.One);
+        if (!serialPort.IsOpen)
+        {
+            serialPort.Open();
+        }
+
+        connectionThread = new Thread(readFromComPort);
+
+
+        connectionThread.Start();
+
+        // make it a background threads that stops when main thread stops
+        connectionThread.IsBackground = true;
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
-        
-        timer += Time.deltaTime;
-
-        if (timer > 2)
-        {
-            timer = 0;
-
-            try
-            {
-                string line;
-                StreamReader theReader = new StreamReader(path, Encoding.Default);
-
-
-                using (theReader)
-                {
-                    line = theReader.ReadLine();
-                    if (line != null)
-                    {
-                        CatchIntArduinoCom(line);
-                    }
-
-
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-           
-
-
-        }
-     
+        CatchIntArduinoCom();
     }
-   
 
-
-  
-
-
-    private void CatchIntArduinoCom(string pulsString)
+    private void CatchIntArduinoCom()
     {
         try
         {
-           
-                
-            PulsCatch = int.Parse(pulsString);
+            PulsCatch = int.Parse(pulsEsp32Incoming);
             Debug.Log(PulsCatch);
-            PlayerStats.playerBPM = PulsCatch;
-           
+            PlayerStats.playerBPM = PulsCatch;        
         }
+      
         catch (System.Exception ex)
         {
-            Debug.Log(ex);
+            Debug.Log("err" + ex);
         }
     }
 
-   
+
+    void readFromComPort()
+    {
+        serialPort.WriteLine("ready");
+        while (true)
+        {
+            pulsEsp32Incoming = serialPort.ReadLine();
+            UnityEngine.Debug.Log("Received this: " + pulsEsp32Incoming);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        connectionThread.Abort();
+    }
+
+    private void OnApplicationQuit()
+    {
+        connectionThread.Abort();
+    }
+
+
+    void listPorts()
+    {
+        foreach (string s in getComPorts())
+        {
+            UnityEngine.Debug.Log(s);
+        }
+    }
+
+    string[] getComPorts()
+    {
+        // Get a list of serial port names.
+        string[] ports = SerialPort.GetPortNames();
+        return ports;
+    }
+
+
 }
+ 

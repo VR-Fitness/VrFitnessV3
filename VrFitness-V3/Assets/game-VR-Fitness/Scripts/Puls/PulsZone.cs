@@ -45,8 +45,8 @@ public class PulsZone : MonoBehaviour
         PulseZone4 = (Pulsreserve * (80f / 100f)) + PlayerStats.PulsMin;
         PulseZone5 = (Pulsreserve * (90f / 100f)) + PlayerStats.PulsMin;
 
-        
 
+        spawnController.spawnDelay = 1.0f;
     }
 
     // Update is called once per frame
@@ -91,37 +91,147 @@ public class PulsZone : MonoBehaviour
             if (PlayerStats.playerBPM > PulseZone1)
             {              
                 spawnController.DecreaseSpeed();
+              // spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
             }
             else if (PlayerStats.playerBPM < PulseZone1)
             {
                 spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
             }
         }
 
         if (PlayerStats.GetTimePlayedMinuttes() >= 1 && PlayerStats.GetTimePlayedMinuttes() < 2)
         {
+            spawnController.spawnDelay = 0.9f;
             if (PlayerStats.playerBPM > PulseZone2)
             {
                 spawnController.DecreaseSpeed();
+              //  spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
             }
             else if (PlayerStats.playerBPM < PulseZone2)
             {
                 spawnController.IncreaseSpeed();
+                ///spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
             }
         }
 
         if (PlayerStats.GetTimePlayedMinuttes() >= 2 && PlayerStats.GetTimePlayedMinuttes() < 3)
         {
+            spawnController.spawnDelay = 0.5f;
             if (PlayerStats.playerBPM > PulseZone3)
             {
                 spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
             }
             else if (PlayerStats.playerBPM < PulseZone3)
             {
                 spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
             }
         }
 
+        if (PlayerStats.GetTimePlayedMinuttes() >= 3 && PlayerStats.GetTimePlayedMinuttes() < 4)
+        {
+            spawnController.spawnDelay = 0.5f;
+            if (PlayerStats.playerBPM > PulseZone4)
+            {
+                spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
+            }
+            else if (PlayerStats.playerBPM < PulseZone4)
+            {
+                spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
+            }
+        }
+        if (PlayerStats.GetTimePlayedMinuttes() >= 4 && PlayerStats.GetTimePlayedMinuttes() < 5)
+        {
+            spawnController.spawnDelay = 0.3f;
+            if (PlayerStats.playerBPM > PulseZone5)
+            {
+                spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
+            }
+            else if (PlayerStats.playerBPM < PulseZone5)
+            {
+                spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
+            }
+        }
+        if (PlayerStats.GetTimePlayedMinuttes() >= 5 && PlayerStats.GetTimePlayedMinuttes() < 6)
+        {
+            spawnController.spawnDelay = 0.3f;
+            if (PlayerStats.playerBPM > PulseZone5)
+            {
+                spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
+            }
+            else if (PlayerStats.playerBPM < PulseZone5)
+            {
+                spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
+            }
+        }
+        if (PlayerStats.GetTimePlayedMinuttes() >= 6 && PlayerStats.GetTimePlayedMinuttes() < 7)
+        {
+            spawnController.spawnDelay = 0.8f;
+            if (PlayerStats.playerBPM > PulseZone3)
+            {
+                spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
+            }
+            else if (PlayerStats.playerBPM < PulseZone3)
+            {
+                spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
+            }
+        }
+        if (PlayerStats.GetTimePlayedMinuttes() >= 7 && PlayerStats.GetTimePlayedMinuttes() < 8)
+        {
+            spawnController.spawnDelay = 0.8f;
+            if (PlayerStats.playerBPM > PulseZone3)
+            {
+                spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
+            }
+            else if (PlayerStats.playerBPM < PulseZone3)
+            {
+                spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
+            }
+        }
+        if (PlayerStats.GetTimePlayedMinuttes() >= 8 && PlayerStats.GetTimePlayedMinuttes() < 10)
+        {
+            spawnController.spawnDelay = 1.5f;
+            if (PlayerStats.playerBPM > PulseZone3)
+            {
+                spawnController.DecreaseSpeed();
+                //spawnController.DecreaseSpawnDelay();
+                spawnController.DecreasShipSpawnChanceProcent();
+            }
+            else if (PlayerStats.playerBPM < PulseZone3)
+            {
+                spawnController.IncreaseSpeed();
+                //spawnController.IncreaseSpawnDelay();
+                spawnController.IncreasShipSpawnChanceProcent();
+            }
+        }
     }
 
 

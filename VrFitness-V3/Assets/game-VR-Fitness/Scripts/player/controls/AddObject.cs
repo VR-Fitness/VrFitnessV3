@@ -8,7 +8,7 @@ public class AddObject : MonoBehaviour
 {
 
     public GameObject test;
-    public GameObject ship;
+   // public GameObject ship;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class AddObject : MonoBehaviour
       //  test.transform.localRotation = Player.instance.hmdTransform.rotation;
         // test.transform.TransformDirection(Player.instance.hmdTransform.position) ;
 
-        ship.transform.localRotation = Player.instance.hmdTransform.rotation;
+      //  ship.transform.localRotation = Player.instance.hmdTransform.rotation;
        // ship.transform.rotation = Player.instance.hmdTransform.rotation;
 
 

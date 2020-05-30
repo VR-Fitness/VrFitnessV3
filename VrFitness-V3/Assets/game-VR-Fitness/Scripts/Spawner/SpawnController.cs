@@ -8,10 +8,14 @@ public class SpawnController : MonoBehaviour
     public GameObject[] spawnPoints;
     public Rigidbody[] Prefabs;
     public float speed = 10f;
+    public float minimumspeed = 3f;
     public int spawnType = 0; // 0 astroid - 1 ship
-    public float spawnDelay = 2f;
-    public int shipSpawnChanceProcent = 10; 
-
+    public float spawnDelay;
+    public float maximumspawnDelay = 3f;
+    public float minimumSpawnDelay = 1f;
+    public int shipSpawnChanceProcent = 10;
+    public int minimumshipSpawnChanceProcent = 5;
+    public int maximumshipSpawnChanceProcent = 100;
 
     private List<Rigidbody> objectsList = new List<Rigidbody>(); // list of  game objects spawned
     private float timerCount = 0;
@@ -40,21 +44,63 @@ public class SpawnController : MonoBehaviour
         }
 
 
-        Debug.Log("objectsList count " + objectsList.Count);
+        //Debug.Log("objectsList count " + objectsList.Count);
     }
 
 
     public void IncreaseSpeed()
     {
-        speed += 0.1f;
-    }
+       
 
+            speed += 0.1f;
+        
+    }
     public void DecreaseSpeed()
     {
-        speed -= 0.1f;
+        if (speed < minimumspeed + 0.1f)
+
+        {
+            speed -= 0.1f;
+        }
+    }
+    public void IncreaseSpawnDelay()
+
+    {
+        if (maximumspawnDelay > spawnDelay)
+        {
+
+            spawnDelay += 0.3f;
+        }
+
+    }
+
+    public void DecreaseSpawnDelay()
+
+    {
+        if (minimumSpawnDelay < spawnDelay + 0.3f)
+        {
+            spawnDelay -= 0.3f;
+        }
+    }
+
+    public void IncreasShipSpawnChanceProcent ()
+
+    {
+        if (maximumshipSpawnChanceProcent > shipSpawnChanceProcent)
+        {
+            shipSpawnChanceProcent += 5;
+        }
     }
 
 
+    public void DecreasShipSpawnChanceProcent()
+
+    {
+        if (shipSpawnChanceProcent < minimumshipSpawnChanceProcent - 5)
+        {
+            shipSpawnChanceProcent -= 5;
+        }
+    }
 
     private void Spawn()
     {
